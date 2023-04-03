@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>LOCAL-NOTEPAD-APP.COM</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="theme-color" content="#fa4299">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -14,9 +14,17 @@
     <div class="title-text">
       <div class="title login">USER LOGIN</div>
     </div>
+    <div class="error">
+      <?php 
+        if(!empty(Messages::$loginErr)){
+          echo Messages::$loginErr;
+          Messages::$loginErr = "";
+        }
+      ?>
+    </div>
     <div class="form-container">
       <div class="form-inner">
-        <form action="action.php" method="POST" class="login">
+        <form action="/home/login" method="POST" class="login">
           <div>
             <span class="error">
               <?php ?>
@@ -38,8 +46,7 @@
       </div>
     </div>
   </div>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/login.js"></script>
+  <script src="/assets/js/jquery.min.js"></script>
 </body>
 
 </html>

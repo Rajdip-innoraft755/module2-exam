@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>LOCAL-NOTEPAD-APP.COM</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
   <meta name="theme-color" content="#fa4299">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -16,7 +16,7 @@
     </div>
     <div class="form-container">
       <div class="form-inner">
-        <form action="bookregister.php" method="POST" enctype="multipart/form-data" class="login">
+        <form action="/dashboard/bookregister" method="POST" enctype="multipart/form-data" class="login">
           <div class="field" id="bookId">
             <input type="text" placeholder="Book ID" name="bookId" required>
             <span class="error"></span>
@@ -66,17 +66,16 @@
 
         <div class="success">
           <?php
-          session_start();
-          if (isset($_SESSION["success"])) {
-            echo $_SESSION["success"];
-          }
+            if(!empty(Messages::$bookRegisterMessages)) {
+              echo Messages::$bookRegisterMessages;
+              Messages::$bookRegisterMessages = "";
+            }
           ?>
         </div>
       </div>
     </div>
   </div>
-  <script src="js/jquery.min.js"></script>
-  <script src="js/login.js"></script>
+  <script src="/assets/js/jquery.min.js"></script>
 </body>
 
 </html>
